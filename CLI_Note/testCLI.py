@@ -68,6 +68,8 @@ while True:
         print("=========================")
         break
     else : 
-        print("\nCan you read Bro? \n type again!")
+        print("\n=========================")
+        print("    Can you read Bro? \n        Type Again!")
+        print("=========================\n")
 
     
