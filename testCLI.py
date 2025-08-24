@@ -1,4 +1,20 @@
+import json
+
 notes = []
+
+
+def save_notes():
+    with open("note/notes.json", "w", encoding="utf-8") as f:
+        json.dump(notes, f, ensure_ascii=False)
+
+def load_notes():
+    try:
+        with open("note/notes.json", "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []
+    
+notes = load_notes()
 
 def show_notes():
     if not notes:
@@ -12,6 +28,7 @@ def show_notes():
 def add_note():
     note = input("\nEnter your note: ")
     notes.append(note)
+    save_notes()
 
 def delete_note():
     show_notes()
@@ -20,6 +37,8 @@ def delete_note():
         notes.pop(num - 1)
     else:
         print("Invalid note number.")
+
+
 
 
 while True:
@@ -40,7 +59,7 @@ while True:
     elif choice == '3':
         delete_note()
     elif choice == '4':
-        print("Bye now.")
+        print("Bye for Now.")
         break
     else : 
         print("\nCan you read Bro? \n type again!")
