@@ -14,8 +14,6 @@ def load_notes():
     except FileNotFoundError:
         return []
     
-notes = load_notes()
-
 def show_notes():
     if not notes:
         print("\nNo notes available.")
@@ -35,10 +33,11 @@ def delete_note():
     num = int(input("\nEnter the number of the note to delete: "))
     if 1 <= num <= len(notes):
         notes.pop(num - 1)
+        save_notes()
     else:
-        print("Invalid note number.")
+        print("No Note number detect.")
 
-
+notes = load_notes()
 
 
 while True:
@@ -59,6 +58,7 @@ while True:
     elif choice == '3':
         delete_note()
     elif choice == '4':
+        print("=========================")
         print("Bye for Now.")
         break
     else : 
