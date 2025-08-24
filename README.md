@@ -1,2 +1,2 @@
 # GG_note
-making a simple note app
+making a simple Todolist app
