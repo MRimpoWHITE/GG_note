@@ -35,8 +35,9 @@ def add_note():
 def delete_note():
     show_notes()
     if len(notes) >= 1:
-        num = int(input("\nEnter the number of the note to delete: "))
-        if 1 <= num <= len(notes):
+        num = input("\nEnter the number of the note to delete: ")
+        num = int(num) if num.isdigit() else 0
+        if 1 <= num <= len(notes) :
             notes.pop(num - 1)
             save_notes()
             print("\n     Note Deleted.")
