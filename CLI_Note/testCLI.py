@@ -76,7 +76,7 @@ while True:
     print("---- GG_Notes -----")
     print("1. View Your Vault")
     print("2. Capture Your Spark")   
-    print("3. Fix the Past")
+    print("3. Fix Your Past")
     print("4. Purge the Record")
     print("5. Eject Now")
     print("=========================\n")
