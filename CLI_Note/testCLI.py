@@ -18,6 +18,32 @@ def load_notes():
     
 notes = load_notes()
     
+def edit_note():
+    if not notes and len(notes) < 1:
+        print("\n  No notes available.")
+        return
+    
+    for i,note in enumerate(notes, 1):
+        print(f"{i}. {note}")
+
+    try:        
+        show_notes()
+        num = input("\nEnter the number of the note to edit: ")
+        num = int(num) if num.isdigit() else 0
+        
+        if 1 <= num <= len(notes):
+            print(f"\nCurrent content: {notes[num - 1]}")
+            new_content = input("Enter the new content: ")
+            notes[num - 1] = new_content
+            save_notes()
+            print("\n     Note Updated.")
+            
+        else:
+            print("\n     No Note Number Detect.")    
+    
+    except ValueError:
+        print("\n     Invalid input. Number only.")
+    
 def show_notes():
     if not notes:
         print("\n   No notes available.")
@@ -50,8 +76,9 @@ while True:
     print("---- GG_Notes -----")
     print("1. View Your Vault")
     print("2. Capture Your Spark")   
-    print("3. Purge the Record")
-    print("4. Eject Now")
+    print("3. Fix the Past")
+    print("4. Purge the Record")
+    print("5. Eject Now")
     print("=========================\n")
     choice = input("Make Your Move : ")    
     
@@ -62,8 +89,10 @@ while True:
     elif choice == '2':
         add_note()
     elif choice == '3':
-        delete_note()
+        edit_note()
     elif choice == '4':
+        delete_note()
+    elif choice == '5':
         print("=========================")
         print("      Bye for Now       .")
         print("=========================")
