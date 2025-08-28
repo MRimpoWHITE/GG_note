@@ -9,7 +9,7 @@ def add_note():
 root = tk.Tk()
 root.title("GG_note")
 
-entry = tk.Entry(root, width=40)
+entry = tk.Entry(root, width=200)
 entry.pack()
 
 btn = tk.Button(root, text="Capture Your Spark", command=add_note)
