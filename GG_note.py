@@ -15,6 +15,7 @@ canvas =tk.Canvas(root, height=700, width=700, bg="#ffffff")
 canvas.pack(side=tk.RIGHT)
 
 entry = tk.Entry(root, width=40)
+
 entry.pack()
 
 btn = tk.Button(root, text="Capture Your Spark", command=add_note)
