@@ -25,15 +25,17 @@ def add_task():
 def delete_task():
     selected = listbox.curselection()
     if selected is not None and selected != "":
-        listbox.delete(selected)
-        tasks.pop(int(selected))  # ต้อง cast เป็น int ด้วย
+        index =  int(selected)
+        listbox.delete(index)
+        tasks.pop(index)  # ต้อง cast เป็น int ด้วย
+        note_text.delete("1.0", "end")   # ล้างช่อง note ด้วย
         
-def show_task():
+def show_task(event):
     selected = listbox.curselection()
     if selected is not None and selected != "":
         index = int(selected)
         note_text.delete("1.0", "end")
-        note_text.insert("1.0", tasks[index])
+        note_text.insert("2.0", tasks[index])
 
 def save_task():
     selected = listbox.curselection()
