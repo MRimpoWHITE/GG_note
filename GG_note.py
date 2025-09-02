@@ -8,7 +8,10 @@ ctk.set_default_color_theme("blue")
 
 app = ctk.CTk()
 app.title("GG_List Note")
-app.geometry("500x400")
+app.geometry("1000x520")
+
+app.grid_columnconfigure(0, weight=1)
+app.grid_rowconfigure(0, weight=1)
 
 note_names = []
 notes = []
@@ -29,7 +32,7 @@ notes = []
 # function
 # -------------
 
-placeholder = "Capture Your Spark...."
+placeholder = "Write Your Story...."
 
 def add_note():
     note_name = entry.get()
@@ -88,34 +91,35 @@ def add_placeholder(event):
 
 
 # ----------------------
-# Widgets
+# Widgets    // Frame 1
 # ----------------------       
 
-frame1 = ctk.CTkFrame(app)
+frame1 = ctk.CTkFrame(app, width=60)
 frame1.grid(row=0, column=0, pady=20, padx=20, sticky="nsew")
-
-frame2 = ctk.CTkFrame(app)
-frame2.grid(row=0, column=1, pady=20, padx=20, sticky="nsew")
 
 entry = ctk.CTkEntry(frame1, placeholder_text="Name Your Journey")
 entry.pack(pady=10, fill="x")
 
-add_button = ctk.CTkButton(frame1, text="Add", command=add_note)
+add_button = ctk.CTkButton(frame1, text="Capture Your Spark", command=add_note)
 add_button.pack(pady=5)
 
-del_button = ctk.CTkButton(frame1, text="Delete", command=delete_task)
+del_button = ctk.CTkButton(frame1, text="Purge the Record", command=delete_task)
 del_button.pack(pady=5)
 
-save_button = ctk.CTkButton(frame2, text="Save", command=save_task)
-save_button.pack(pady=5)
-
-listbox = CTkListbox(frame1, height=200)
+listbox = CTkListbox(frame1)
 listbox.pack(pady=10, fill="both", expand=True)
 listbox.bind("<<ListboxSelect>>", show_task)
 
-# ---------
-# Note
-# ---------
+# ----------------------
+# Widgets    // Frame 2
+# ----------------------    
+
+frame2 = ctk.CTkFrame(app)
+frame2.grid(row=0, column=1, pady=20, padx=20, sticky="nsew")
+
+# ---------------------
+# Note     // Frame 2
+# ---------------------
 
 note_text = ctk.CTkTextbox(frame2)
 note_text.pack(pady=10, fill="both", expand=True)
@@ -126,6 +130,10 @@ note_text.tag_add("placeholder", "1.0", "end")
 # bind event focus
 note_text.bind("<FocusIn>", clear_placeholder)          
 note_text.bind("<FocusOut>", add_placeholder)          
+
+
+save_button = ctk.CTkButton(frame2, text="Save", command=save_task)
+save_button.pack(pady=5)
 
 # -------------
 # Run app
