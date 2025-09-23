@@ -62,9 +62,6 @@ def show_task(event):
             note_text.tag_add("placeholder", "1.0", "end")
         # else:
         #     note_text.insert("1.0", notes[index])
-        
-        print(note_names[index])
-        print(notes[index])
 
 def save_task():
     selected = listbox.curselection()
@@ -88,7 +85,7 @@ def add_placeholder(event):
     if note_text.get("1.0", "end-1c").strip()== "":
         note_text.insert("1.0", placeholder, "placeholder")
         note_text.tag_add("placeholder", "1.0", "end")
-asd
+
 
 # ----------------------
 # Widgets    // Frame 1
